@@ -1,5 +1,8 @@
 <template>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!x
-  </h1>
+  <div>
+    <Header/>
+    <div class="container my-5">
+      Marien
+    </div>
+  </div>
 </template>
