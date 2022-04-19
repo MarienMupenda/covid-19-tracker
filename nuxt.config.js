@@ -32,7 +32,15 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     // '@nuxtjs/tailwindcss',
     '@nuxt/postcss8',
+    '@nuxtjs/fontawesome',
   ],
+  fontawesome: {
+    icons:{
+      solid:true,
+      brands:true,
+      regular:true
+    }
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
