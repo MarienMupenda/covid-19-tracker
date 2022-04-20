@@ -43,6 +43,11 @@ export default {
     }
   },
 
+  moment: {
+    defaultLocale: 'de',
+    locales: ['fr', 'de', 'en'],
+  },
+
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
 
