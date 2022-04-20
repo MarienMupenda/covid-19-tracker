@@ -1,10 +1,10 @@
 <template>
   <div>
     <Header/>
-    <DataTitle :text="title" :dataDate="dataDate"/>
-    <DataBoxes :data="data"/>
     <main v-if="!loading" class="container">
-      show data
+
+      <DataTitle :text="title" :dataDate="dataDate"/>
+      <DataBoxes :stats="stats"/>
     </main>
     <main v-else class="flex flex-col align-center justify-center text-center">
       <div class="text-gray-500 texy-3xl mt-10 mb-6">
@@ -17,6 +17,7 @@
 </template>
 <script lang="js">
 import DataBoxes from "../components/DataBoxes";
+
 export default {
   name: 'Home',
   components: {DataBoxes},
@@ -27,7 +28,7 @@ export default {
       title: 'Global',
       loading: true,
       dataDate: '',
-      status: {},
+      stats: {},
       countries: [],
       loadingImage: require('../assets/hourglass.gif'),
 
@@ -44,9 +45,12 @@ export default {
     console.log("Created")
     const data = await this.fetchCovidData()
 
+    //log  data
+    console.log(data)
+
     this.dataDate = data.Date
     this.countries = data.Countries
-    this.status = data.Global
+    this.stats = data.Global
     this.loading = false
   },
   mounted() {
