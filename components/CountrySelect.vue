@@ -24,8 +24,8 @@ export default {
       const country = this.countries.find(
         country => country.ID === this.selected
       );
-      console.log(country);
-      this.$emit("get-country", event.target.value);
+      console.log("country changed to: " + country.Country);
+      this.$emit("get-country", country);
     }
   }
 }

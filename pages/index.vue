@@ -5,24 +5,21 @@
       <CountrySelect :countries="countries" :selected="0"/>
       <DataTitle :text="title" :dataDate="dataDate"/>
       <DataBoxes :stats="stats"/>
-      <CountrySelect :countries="countries" :selected="selectedCountry" @change="onChange"/>
+      <CountrySelect @get-country="getCountryData" :countries="countries" :selected="selectedCountry" />
     </main>
     <main v-else class="flex flex-col align-center justify-center text-center">
       <div class="text-gray-500 texy-3xl mt-10 mb-6">
         Fetching data...
       </div>
-      <img :src="loadingImage">
+      <img :src="loadingImage" alt="loading">
     </main>
 
   </div>
 </template>
 <script lang="js">
-import DataBoxes from "../components/DataBoxes";
-import CountrySelect from "../components/CountrySelect";
 
 export default {
   name: 'Home',
-  components: {CountrySelect, DataBoxes},
   loading: false,
 
   data() {
@@ -41,7 +38,12 @@ export default {
     async fetchCovidData() {
       const response = await fetch('https://api.covid19api.com/summary')
       return response.json();
-    }
+    },
+    getCountryData(country) {
+      console.log("country set to: " + country.Country);
+      this.title = country.Country
+      this.stats = country
+    },
   },
   async created() {
     console.log("Created")
