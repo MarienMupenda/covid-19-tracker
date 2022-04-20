@@ -23,7 +23,7 @@ export default {
   computed: {
     timestamp: function () {
 
-      return moment(this.dataDate).format("MMMM Do YYYY, h:mm:ss a")
+      return moment(this.dataDate).format("MMMM Do YYYY, h:mm:ss a UTC+2")
     },
   }
 }

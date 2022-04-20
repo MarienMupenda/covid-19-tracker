@@ -1,5 +1,5 @@
 <template>
-  <select v-model="selected" class="form-select block w-full border p-3 rounded" @change="onChange">
+  <select v-model="selected" class="form-select block w-full border p-3 mt-3 mb-3 rounded" @change="onChange">
     <option value="0">Select Country</option>
     <option v-for="country in countries" :value="country.ID">{{ country.Country }}</option>
   </select>
@@ -20,12 +20,13 @@ export default {
     }
   },
   methods: {
-    onChange:function (event) {
+    onChange: function (event) {
       const country = this.countries.find(
         country => country.ID === this.selected
       );
+      this.selected = country.ID;
       console.log("country changed to: " + country.Country);
-      this.$emit("get-country", country);
+      $nuxt.$emit("country-selected", country);
     }
   }
 }
