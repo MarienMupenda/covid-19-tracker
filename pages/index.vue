@@ -1,15 +1,46 @@
 <template>
   <div>
-    <Header/>
-    <div class="container my-5">
-      Marien
-    </div>
-    <div>
-      <font-awesome-icon :icon="['fas', 'adjust']"/>
-      <font-awesome-icon icon="dollar-sign" style="font-size: 30px"/>
-      <font-awesome-icon icon="cog"/>
+    <Header />
+    <main v-if="!loading">
+      show data
+    </main>
+    <main v-else>
+      loading...
+    </main>
 
-      <fa :icon="faGithub"/>
-    </div>
   </div>
 </template>
+<script lang="js">
+export default {
+  name: 'Home',
+  components: {},
+  loading: false,
+
+  data(){
+    return {
+      title: 'Home',
+      loading: true,
+      dataDate : '',
+      status:{ },
+      countries: [],
+      loadingImage: require('../assets/hourglass.gif'),
+
+    }
+  },
+
+  methods :{
+    async fetchCovidData(){
+      const response = await axios.get('https://api.covid19api.com/summary')
+      console.log(response.data)
+    }
+  },
+  async created(){
+  const data = await this.fetchCovidData()
+  this.dataDate = data.Date
+  this.countries = data.Countries
+  this.status = data.Global
+  this.loading = false
+  }
+}
+</script>
+
