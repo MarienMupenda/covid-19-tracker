@@ -2,9 +2,10 @@
   <div>
     <Header/>
     <main v-if="!loading" class="container">
-
+      <CountrySelect :countries="countries" :selected="0"/>
       <DataTitle :text="title" :dataDate="dataDate"/>
       <DataBoxes :stats="stats"/>
+      <CountrySelect :countries="countries" :selected="selectedCountry" @change="onChange"/>
     </main>
     <main v-else class="flex flex-col align-center justify-center text-center">
       <div class="text-gray-500 texy-3xl mt-10 mb-6">
@@ -17,10 +18,11 @@
 </template>
 <script lang="js">
 import DataBoxes from "../components/DataBoxes";
+import CountrySelect from "../components/CountrySelect";
 
 export default {
   name: 'Home',
-  components: {DataBoxes},
+  components: {CountrySelect, DataBoxes},
   loading: false,
 
   data() {

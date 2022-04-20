@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    text: 'e-docs-upl',
+    text: 'COVID-19 Tracker',
     htmlAttrs: {
       lang: 'en',
     },
@@ -36,10 +36,10 @@ export default {
     '@nuxtjs/moment',
   ],
   fontawesome: {
-    icons:{
-      solid:true,
-      brands:true,
-      regular:true
+    icons: {
+      solid: true,
+      brands: true,
+      regular: true
     }
   },
 
