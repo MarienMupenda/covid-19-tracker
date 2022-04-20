@@ -2,14 +2,11 @@
   <div>
     <Header/>
     <main v-if="!loading" class="container">
-      <CountrySelect :countries="countries" :selected="0"/>
+      <CountrySelect  :countries="countries" :selected="selectedCountry"/>
       <DataTitle :text="title" :dataDate="dataDate"/>
       <DataBoxes :stats="stats"/>
       <CountrySelect :countries="countries" :selected="selectedCountry" />
-      <button class="btn btn-primary btn-lg btn-block">
-        <i class="fa fa-user"></i>
-        Reset
-      </button>
+
     </main>
     <main v-else class="flex flex-col align-center justify-center text-center">
       <div class="text-gray-500 texy-3xl mt-10 mb-6">
@@ -60,6 +57,11 @@ export default {
     this.countries = data.Countries
     this.stats = data.Global
     this.loading = false
+
+    this.$nuxt.$on('country-reset', () => {
+      this.stats = data.Global
+      this.title = 'Global'
+    })
 
     this.$nuxt.$on('country-selected', (country) => {
       this.setCountryData(country)

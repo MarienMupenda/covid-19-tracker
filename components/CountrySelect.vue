@@ -21,17 +21,19 @@ export default {
   },
   methods: {
     onChange: function (event) {
-      const country = this.countries.find(
-        country => country.ID === this.selected
-      );
-      this.selected = country.ID;
-      console.log("country changed to: " + country.Country);
-      $nuxt.$emit("country-selected", country);
+      console.log("Selected:" + this.selected.toString());
+      if (this.selected.toString() !== "0") {
+        const country = this.countries.find(
+          country => country.ID === this.selected
+        );
+        this.selected = country.ID;
+        console.log("country changed to: " + country.Country);
+
+        $nuxt.$emit("country-selected", country);
+      } else {
+        $nuxt.$emit("country-reset");
+      }
     }
   }
 }
 </script>
-
-<style scoped>
-
-</style>
