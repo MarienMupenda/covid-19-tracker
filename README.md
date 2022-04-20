@@ -1,8 +1,12 @@
-# e-docs-upl
+# Covid-19 Tracker
+A simple covid-19 tracker app build with nuxtjs, vue and tailwindcss
 
 ## Build Setup
 
 ```bash
+#clone the repo
+$ git clone git@github.com:MarienMupenda/covid-19-tracker.git
+
 # install dependencies
 $ yarn install
 
