@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'e-docs-upl',
+    text: 'e-docs-upl',
     htmlAttrs: {
       lang: 'en',
     },
@@ -33,6 +33,7 @@ export default {
     // '@nuxtjs/tailwindcss',
     '@nuxt/postcss8',
     '@nuxtjs/fontawesome',
+    '@nuxtjs/moment',
   ],
   fontawesome: {
     icons:{

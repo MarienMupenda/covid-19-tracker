@@ -1,7 +1,8 @@
 <template>
   <div>
     <Header/>
-   <DataTitle :title="title" :dataDate="dataDate"/>
+    <DataTitle :text="title" :dataDate="dataDate"/>
+    <DataBoxes :data="data"/>
     <main v-if="!loading" class="container">
       show data
     </main>
@@ -15,15 +16,15 @@
   </div>
 </template>
 <script lang="js">
-import DataTitle from "../components/DataTitle";
+import DataBoxes from "../components/DataBoxes";
 export default {
   name: 'Home',
-  components: {DataTitle},
+  components: {DataBoxes},
   loading: false,
 
   data() {
     return {
-      title: 'Home',
+      title: 'Global',
       loading: true,
       dataDate: '',
       status: {},
